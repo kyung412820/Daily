@@ -198,7 +198,7 @@ JSP 뷰:
 
 ## Trouble Shooting
 
-[https://kyunghun0515.tistory.com/manage/posts](https://kyunghun0515.tistory.com/30)
+[https://kyunghun0515.tistory.com/90
 <br/>
 <br/>
 <br/>
