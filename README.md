@@ -89,45 +89,86 @@ deletePost (GET /mvc/posts/delete)
 #### 2. PostRepository (저장소)
 역할:
 데이터베이스와 직접적으로 연결되어 CRUD 작업을 수행합니다.
+
+
 주요 메서드
+
 savePostUser: postuser 테이블에 사용자 정보를 저장합니다.
+
 savePostWork: postwork 테이블에 작업 정보를 저장합니다.
+
 findAllPosts: 모든 게시물을 조회합니다.
+
 findPostUserById: 특정 ID에 해당하는 게시물 데이터를 조회합니다.
+
 updatePostUser, updatePostWork: 게시물 데이터를 수정합니다.
+
 deletePostUserById, deletePostWorkByUserId: 특정 ID에 해당하는 게시물을 삭제합니다.
+
 findPostSearch: ID나 날짜 조건으로 게시물을 검색합니다.
+
 #### 3. 데이터베이스 테이블
 게시물 데이터를 저장하기 위해 두 개의 테이블(postuser, postwork)을 사용했습니다.
+
+
 postuser 테이블
+
 작성자 정보가 저장됩니다.
+
 컬럼: id, name, email, origindate, date
+
+
 postwork 테이블
+
 작업 관련 정보가 저장됩니다.
+
 컬럼: id, work, password, date, user_id
 #### 4. 주요 기능
 게시물 저장
+
 /mvc/posts/save로 POST 요청을 보내면 Post 객체를 데이터베이스에 저장합니다.
+
+
 입력값 검증:
+
 @Valid 어노테이션으로 데이터 유효성을 검사합니다.
+
 나누기 0 같은 오류는 예외 처리로 대응.
+
+
 게시물 목록 조회
+
 /mvc/posts/list로 GET 요청을 보내면 모든 게시물을 화면에 출력합니다.
+
+
 게시물 검색
+
 /mvc/posts/search로 GET 요청을 보내 ID 또는 날짜를 조건으로 게시물을 검색합니다.
+
+
 게시물 수정
+
 /mvc/posts/edit로 특정 ID에 해당하는 게시물을 수정합니다.
+
 수정된 데이터를 /mvc/posts/update로 POST 요청하여 저장합니다.
+
+
 게시물 삭제
+
 /mvc/posts/delete로 GET 요청을 보내 특정 ID의 게시물을 삭제합니다.
+
+
 프로젝트 구조
 Controller: PostController
 
 클라이언트 요청을 받아 처리.
+
 데이터를 Repository와 JSP로 전달.
+
 Repository: PostRepository
 
 데이터베이스 CRUD 작업 담당.
+
 JSP 뷰:
 
 데이터를 화면에 표시하거나 입력받는 역할.
